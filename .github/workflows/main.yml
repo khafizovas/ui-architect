@@ -10,9 +10,7 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
-    on:
-      pull_request:
-        types: ['opened', 'reopened', 'ready_for_review']
+    if: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
@@ -23,9 +21,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: 'lint'
-    on:
-      push:
-        branches: ['main']
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
