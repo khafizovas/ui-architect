@@ -12,8 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     on:
       pull_request:
-        types: ['opened', 'reopened']
-        branches: ['main', 'dev']
+        types: ['opened', 'reopened', 'ready_for_review']
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
@@ -26,7 +25,7 @@ jobs:
     needs: 'lint'
     on:
       push:
-        branches: ['main', 'dev']
+        branches: ['main']
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
