@@ -4,7 +4,7 @@ on:
   push:
     branches: ['main', 'config/final-deploy']
   pull_request:
-    branches: ['main', 'dev']
+    branches: ['main', 'dev', 'config/final-deploy']
 
 jobs:
   lint:
