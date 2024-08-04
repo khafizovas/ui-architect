@@ -2,10 +2,9 @@ name: CI
 
 on:
   push:
-    branches: ['main']
+    branches: ['main', 'dev']
   pull_request:
-    branches: ['main']
-  workflow_dispatch:
+    branches: ['main', 'dev']
 
 jobs:
   lint:
@@ -21,7 +20,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: 'lint'
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    if: ${{ github.ref == 'refs/heads/main' }}
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
