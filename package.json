@@ -5,19 +5,23 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "preview": "vite preview",
     "build": "tsc -b && vite build",
     "build:prod": "tsc -b && vite build --base=/ui-architect/",
     "lint": "eslint . --ext js,jsx,ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint-fix": "npm run lint --fix",
     "format": "prettier . --write",
-    "preview": "vite preview",
     "prepare": "husky",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "bin": {
+    "component": "bin/component.js"
+  },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "styled-components": "^6.1.12"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.6.1",
@@ -38,6 +42,7 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
     "eslint-plugin-storybook": "^0.8.0",
+    "figlet": "^1.7.0",
     "husky": "^9.1.4",
     "prettier": "^3.3.3",
     "storybook": "^8.2.7",
