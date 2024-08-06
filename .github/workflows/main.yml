@@ -2,13 +2,23 @@ name: CI
 
 on:
   pull_request:
-    branches: ['main']
-    types: ['closed']
+    types: ['opened', 'synchronize', 'closed']
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.action == 'opened' || github.event.action == 'synchronize' }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm install
+      - name: Lint with ESLint
+        run: npm run lint
+
   deploy:
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.merged == true }}
+    needs: 'lint'
+    if: ${{ github.ref == 'refs/heads/main' && github.event.pull_request.merged == true }}
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
