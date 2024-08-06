@@ -7,7 +7,7 @@ component create|c <ComponentName> <ComponentType> [ParentView]
 ```
 
 - `ComponentName` - название компонента,
-- `ComponentType` - тип компонента - `ui` | `view` | `component`,
+- `ComponentType` - тип компонента - `ui` | `views` | `components`,
 - `ParentView` - название родительского `view`, в директорию которого необходимо поместить создаваемый `component`.
 
 Скрипт создаёт директорию в `src/ui/`, `src/views/` или `src/views/ViewName/` соответственно.
