@@ -7,7 +7,7 @@ component create|c <ComponentName> <ComponentType> [ParentView]
 ```
 
 - `ComponentName` - название компонента,
-- `ComponentType` - тип компонента - `ui` | `views` | `components`,
+- `ComponentDirectory` - директория, в которую следует поместить компонент - `ui` | `views` | `components`,
 - `ParentView` - название родительского `view`, в директорию которого необходимо поместить создаваемый `component`.
 
 Скрипт создаёт директорию в `src/ui/`, `src/views/` или `src/views/ViewName/` соответственно.
@@ -15,8 +15,10 @@ component create|c <ComponentName> <ComponentType> [ParentView]
 В этой директории генерирует следующие файлы:
 
 - `ComponentName.tsx`,
+- `types.ts`,
 - `ComponentName.styled.tsx`,
 - `ComponentName.stories.tsx`\*,
+- `fixtures.ts`\*,
 - TODO `ComponentName.spec.tsx`\*,
 - `index.ts`.
 
